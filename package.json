@@ -1,0 +1,39 @@
+{
+  "name": "react-is-visible",
+  "version": "0.0.1",
+  "description":
+    "A simple HOC that passes a visibilityStatus-prop to components that are using it.",
+  "keywords": ["intersection", "observer", "visible", "visibility"],
+  "main": "lib/withIsVisible.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lessp/react-is-visible.git"
+  },
+  "author": "Tom Ekander (https://github.com/lessp)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lessp/react-is-visible/issues"
+  },
+  "homepage": "https://github.com/lessp/react-is-visible",
+  "peerDependencies": {
+    "react": "^16.3.0"
+  },
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "hoist-non-react-statics": "^2.5.0",
+    "webpack": "^4.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.3",
+    "react-test-renderer": "^16.3.2"
+  }
+}
