@@ -1,11 +1,11 @@
+import "intersection-observer";
+
 let intersectionObserver;
 let intersectionObserverOptions = {};
 let subscribers = new Map();
 
-const handleIntersections = entries => entries.forEach(passVisibilityStatus);
-
-const passVisibilityStatus = entry =>
-  subscribers.get(entry.target).call(this, entry);
+const handleIntersections = entries =>
+  entries.forEach(entry => subscribers.get(entry.target).call(this, entry));
 
 const getIntersectionObserver = () => {
   if (!intersectionObserver) {
@@ -42,8 +42,4 @@ const unwatch = domNode => {
   }
 };
 
-const emit = (subscriber, details) => {
-  subscribers.get(subscriber)(details);
-};
-
-export default { watch, unwatch };
+export default { watch, unwatch, setIntersectionObserverOptions };
