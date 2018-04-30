@@ -3,13 +3,11 @@ import ReactDOM from "react-dom";
 
 import renderer from "react-test-renderer";
 
-import VisibilityObserver from "../src/VisibilityObserver";
-import { withIsVisible } from "../src/withIsVisible";
-
 /* Enzyme */
-import { configure, shallow, mount, render } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-configure({ adapter: new Adapter() });
+import { shallow, mount, render } from "enzyme";
+import "./setup.js";
+
+import { withIsVisible } from "../src/withIsVisible";
 
 let FunctionalComponent = ({ visibilityStatus, ...props }) => <h1 {...props} />;
 FunctionalComponent = withIsVisible(FunctionalComponent);
@@ -72,19 +70,3 @@ describe("withIsVisible", () => {
     component.unmount();
   });
 });
-
-/**
- * TODO: Add these tests and think about how to make these less tightly coupled
-describe("VisibilityObserver", () => {
-  it("adds a wrapped component to subscriber list", () => {
-    const component = mount(<FunctionalComponent />);
-
-    component.unmount();
-  });
-  it("removes a wrapped component from subscriber list on unmount", () => {
-    const component = mount(<FunctionalComponent />);
-
-    component.unmount();
-  });
-});
-*/
