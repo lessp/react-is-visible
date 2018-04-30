@@ -1,5 +1,3 @@
-import "intersection-observer";
-
 let intersectionObserver;
 let intersectionObserverOptions = {};
 let subscribers = new Map();
