@@ -3,60 +3,19 @@ import ReactDOM from "react-dom";
 
 import hoistNonReactStatic from "hoist-non-react-statics";
 
-import VO from "./VisibilityObserver";
+import IsVisible from "./IsVisible";
 
 const getDisplayName = WrappedComponent =>
   WrappedComponent.displayName || WrappedComponent.name || "Component";
 
 export const withIsVisible = WrappedComponent => {
-  class WithIsVisible extends React.Component {
-    constructor(props) {
-      super(props);
-
-      this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
-
-      this.state = {
-        visibilityStatus: {
-          isVisible: false,
-          details: {}
-        }
-      };
-    }
-
-    componentDidMount() {
-      this.unwatch = VO.watch(
-        ReactDOM.findDOMNode(this),
-        this.handleVisibilityChange
-      );
-    }
-
-    componentWillUnmount() {
-      this.unwatch();
-    }
-
-    handleVisibilityChange({ isIntersecting, boundingClientRect, time }) {
-      this.setState({
-        visibilityStatus: {
-          isVisible: isIntersecting,
-          details: {
-            boundingClientRect,
-            time
-          }
-        }
-      });
-    }
-
-    render() {
-      const { forwardedRef, ...props } = this.props;
-      return (
-        <WrappedComponent
-          visibilityStatus={this.state.visibilityStatus}
-          ref={forwardedRef}
-          {...props}
-        />
-      );
-    }
-  }
+  const WithIsVisible = ({ forwardedRef, ...props }) => (
+    <IsVisible
+      children={isVisible => (
+        <WrappedComponent {...props} isVisible={isVisible} ref={forwardedRef} />
+      )}
+    />
+  );
 
   /* Display name */
   WithIsVisible.displayName = `WithIsVisible(${getDisplayName(
