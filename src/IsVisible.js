@@ -26,11 +26,11 @@ class IsVisible extends React.Component {
   }
 
   handleVisibilityChange({ isIntersecting }) {
-    if (this.state.isVisible === isIntersecting) return;
-
-    this.setState({
-      isVisible: isIntersecting
-    });
+    if (this.state.isVisible !== isIntersecting) {
+      this.setState({
+        isVisible: isIntersecting
+      });
+    }
   }
 
   render() {
