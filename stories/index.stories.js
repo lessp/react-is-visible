@@ -1,7 +1,6 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 
 import IsVisible, { withIsVisible } from "../src";
 
@@ -31,9 +30,7 @@ storiesOf("React Is Visible", module)
   .add("as Render Prop", () => (
     <div style={basicStyling}>
       <IsVisible>
-        {isVisible => (
-          <FunctionalComponentWithIsVisible isVisible={isVisible} />
-        )}
+        {isVisible => <FunctionalComponent isVisible={isVisible} />}
       </IsVisible>
     </div>
   ));
