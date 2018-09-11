@@ -21,6 +21,10 @@ class IsVisible extends React.Component {
     );
   }
 
+  shouldComponentUpdate(_nextProps, nextState) {
+    return nextState !== this.state;
+  }
+
   componentWillUnmount() {
     this.unwatch();
   }
