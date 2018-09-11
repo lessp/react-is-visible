@@ -1,0 +1,12 @@
+# linters
+.prettierc
+.babelrc
+.eslintrc
+
+# tests
+test
+stories
+.storybook
+
+# build
+.travis.yml
