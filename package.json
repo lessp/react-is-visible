@@ -1,6 +1,6 @@
 {
   "name": "react-is-visible",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple library that passes an 'isVisible'-prop to components that are using it.",
   "keywords": [
     "intersection",
