@@ -4,17 +4,18 @@ import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
 
 /* Enzyme */
-import { shallow, mount, render } from "enzyme";
+import { mount } from "enzyme";
 import "./setup.js";
 
-import { withIsVisible } from "../src/withIsVisible";
+import "intersection-observer";
+import IsVisible, { withIsVisible } from "../src";
 
-let FunctionalComponent = ({ visibilityStatus, ...props }) => <h1 {...props} />;
+let FunctionalComponent = ({ isVisible, ...props }) => <h1 {...props} />;
 FunctionalComponent = withIsVisible(FunctionalComponent);
 
 class ClassComponent extends React.Component {
   render() {
-    const { visibilityStatus, ...props } = this.props;
+    const { isVisible, ...props } = this.props;
 
     return <h1 {...props} />;
   }
@@ -43,14 +44,7 @@ describe("withIsVisible", () => {
   it("passes its state as props to a Functional Component", () => {
     const component = mount(<FunctionalComponent />);
 
-    expect(
-      component.find("FunctionalComponent").prop("visibilityStatus")
-    ).toHaveProperty(
-      "isVisible",
-      expect.anything(),
-      "details",
-      expect.anything()
-    );
+    expect(component.find("FunctionalComponent").prop("isVisible")).toBe(false);
 
     component.unmount();
   });
@@ -58,14 +52,7 @@ describe("withIsVisible", () => {
   it("passes its state as props to a Class Component", () => {
     const component = mount(<ClassComponent />);
 
-    expect(
-      component.find("ClassComponent").prop("visibilityStatus")
-    ).toHaveProperty(
-      "isVisible",
-      expect.anything(),
-      "details",
-      expect.anything()
-    );
+    expect(component.find("ClassComponent").prop("isVisible")).toBe(false);
 
     component.unmount();
   });

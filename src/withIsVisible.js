@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 import hoistNonReactStatic from "hoist-non-react-statics";
 
