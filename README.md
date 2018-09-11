@@ -71,7 +71,7 @@ class SomeClass extends React.Component {
 
 ```jsx
 import React from "react";
-import { IsVisible } from "react-is-visible";
+import IsVisible from "react-is-visible";
 
 const App = () => (
   <IsVisible>{isVisible => <h1>{isVisible && `I'm visible!`}</h1>}</IsVisible>
