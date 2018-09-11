@@ -1,6 +1,6 @@
 let intersectionObserver;
 let intersectionObserverOptions = {};
-let subscribers = new Map();
+let subscribers = new WeakMap();
 
 const handleIntersections = entries =>
   entries.forEach(entry => subscribers.get(entry.target).call(this, entry));
