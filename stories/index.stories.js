@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 
 import IsVisible, { withIsVisible } from "../src";
 
-const basicStyling = (addStyling = {}) => ({
+const wrapperStyling = (addStyling = {}) => ({
   font: "500 16px/1.5 sans-serif",
   color: "white",
   display: "flex",
@@ -71,12 +71,12 @@ class InfiniteScroll extends React.Component {
 
     return (
       <div>
-        <ul style={basicStyling()}>
+        <ul style={wrapperStyling()}>
           {images.map(image => (
-            <IsVisible>
+            <IsVisible key={image}>
               {isVisible => (
-                <li key={image}>
-                  <FunctionalComponent key={image} isVisible={isVisible}>
+                <li>
+                  <FunctionalComponent isVisible={isVisible}>
                     {image}
                   </FunctionalComponent>
                 </li>
@@ -98,7 +98,7 @@ class InfiniteScroll extends React.Component {
 
 storiesOf("React Is Visible", module)
   .add("as HOC", () => (
-    <div style={basicStyling({ height: "200vh" })}>
+    <div style={wrapperStyling({ height: "200vh" })}>
       <h2 style={{ color: "black", marginBottom: "auto" }}>Scroll down</h2>
       <FunctionalComponentWithIsVisible>
         I'm visible!
@@ -106,7 +106,7 @@ storiesOf("React Is Visible", module)
     </div>
   ))
   .add("as Render Prop", () => (
-    <div style={basicStyling({ height: "200vh" })}>
+    <div style={wrapperStyling({ height: "200vh" })}>
       <h2 style={{ color: "black", marginBottom: "auto" }}>Scroll down</h2>
       <IsVisible>
         {isVisible => (
