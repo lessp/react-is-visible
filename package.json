@@ -40,7 +40,8 @@
     }
   },
   "peerDependencies": {
-    "react": "^16.7.0-alpha.2"
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2"
   },
   "dependencies": {
     "hoist-non-react-statics": "3.2.1"
