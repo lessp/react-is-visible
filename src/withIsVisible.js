@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-import hoistNonReactStatic from "hoist-non-react-statics";
+import hoistNonReactStatic from 'hoist-non-react-statics'
 
-import IsVisible from "./IsVisible";
+import IsVisible from './IsVisible'
 
 const getDisplayName = WrappedComponent =>
-  WrappedComponent.displayName || WrappedComponent.name || "Component";
+  WrappedComponent.displayName || WrappedComponent.name || 'Component'
 
 export const withIsVisible = WrappedComponent => {
   const WithIsVisible = ({ forwardedRef, ...props }) => (
@@ -14,22 +14,22 @@ export const withIsVisible = WrappedComponent => {
         <WrappedComponent {...props} isVisible={isVisible} ref={forwardedRef} />
       )}
     />
-  );
+  )
 
   /* Display name */
   WithIsVisible.displayName = `WithIsVisible(${getDisplayName(
     WrappedComponent
-  )})`;
+  )})`
 
   /* Passes non-React static methods */
-  hoistNonReactStatic(WithIsVisible, WrappedComponent);
+  hoistNonReactStatic(WithIsVisible, WrappedComponent)
 
   /* Forward refs */
   function forwardRef(props, ref) {
-    return <WithIsVisible {...props} forwardedRef={ref} />;
+    return <WithIsVisible {...props} forwardedRef={ref} />
   }
 
-  forwardRef.displayName = `withIsVisible(${getDisplayName(WrappedComponent)})`;
+  forwardRef.displayName = `withIsVisible(${getDisplayName(WrappedComponent)})`
 
-  return React.forwardRef(forwardRef);
-};
+  return React.forwardRef(forwardRef)
+}

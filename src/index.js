@@ -1,5 +1,6 @@
-import { withIsVisible } from "./withIsVisible";
-import IsVisible from "./IsVisible";
-import VisibilityObserver from "./VisibilityObserver";
+import { withIsVisible } from './withIsVisible'
+import IsVisible from './IsVisible'
+import useIsVisible from './useIsVisible'
+import VisibilityObserver from './VisibilityObserver'
 
-export { IsVisible as default, withIsVisible, VisibilityObserver };
+export { IsVisible as default, useIsVisible, VisibilityObserver, withIsVisible }

@@ -8,6 +8,8 @@ branches:
 cache:
   directories:
     - "node_modules"
+install:
+  - npm install ---silent
 script:
   - "npm run test"
   - "npm run build-storybook"

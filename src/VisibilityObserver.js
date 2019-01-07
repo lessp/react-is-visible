@@ -1,50 +1,50 @@
-let intersectionObserver;
-let intersectionObserverOptions = {};
-let subscribers = new WeakMap();
+let intersectionObserver
+let intersectionObserverOptions = {}
+const subscribers = new WeakMap()
 
 const handleIntersections = entries =>
-  entries.forEach(entry => subscribers.get(entry.target).call(null, entry));
+  entries.forEach(entry => subscribers.get(entry.target).call(null, entry))
 
 const getIntersectionObserver = () => {
   if (!intersectionObserver) {
     intersectionObserver = new IntersectionObserver(
       handleIntersections,
       intersectionObserverOptions
-    );
+    )
   }
 
-  return intersectionObserver;
-};
+  return intersectionObserver
+}
 
 const setIntersectionObserverOptions = options => {
-  if (intersectionObserver) return;
+  if (intersectionObserver) {
+    return
+  }
 
-  intersectionObserverOptions = options;
-};
+  intersectionObserverOptions = options
+}
 
 const watch = (domNode, callback) => {
-  if (subscribers.has(domNode)) return;
+  if (!domNode || subscribers.has(domNode)) {
+    return
+  }
 
-  subscribers.set(domNode, callback);
-  getIntersectionObserver().observe(domNode);
+  subscribers.set(domNode, callback)
+  getIntersectionObserver().observe(domNode)
 
-  return () => unwatch(domNode);
-};
+  return () => unwatch(domNode)
+}
 
 const unwatch = domNode => {
-  intersectionObserver.unobserve(domNode);
-  subscribers.delete(domNode);
+  intersectionObserver.unobserve(domNode)
+  subscribers.delete(domNode)
+}
 
-  if (subscribers.size === 0) {
-    intersectionObserver.disconnect();
-  }
-};
-
-const getSubscribers = () => subscribers;
+const getSubscribers = () => subscribers
 
 export default {
-  watch,
-  unwatch,
+  getSubscribers,
   setIntersectionObserverOptions,
-  getSubscribers
-};
+  unwatch,
+  watch,
+}
