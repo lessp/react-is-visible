@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import { storiesOf } from '@storybook/react'
 
+import 'intersection-observer'
+
 import IsVisible, { withIsVisible, useIsVisible } from '../src'
 
 import asHOC from './asHOC.md'
