@@ -3,13 +3,19 @@
 [![build status](https://img.shields.io/travis/lessp/react-is-visible/master.svg?style=flat-square)](https://travis-ci.org/lessp/react-is-visible)
 [![dependencies Status](https://david-dm.org/lessp/react-is-visible/status.svg?style=flat-square)](https://david-dm.org/lessp/react-is-visible)
 
-A simple library that lets you know whether a Component is visible or not.
-
-**Live examples:** [https://lessp.github.io/react-is-visible/](https://lessp.github.io/react-is-visible/index.html)
+A small library that lets you know whether a component is visible on screen or not.
 
 Uses the [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver).
 
-# Table of contents
+### Live Examples
+
+**Storybook:** [https://lessp.github.io/react-is-visible/](https://lessp.github.io/react-is-visible/index.html) 
+
+**Code Sandbox:** [https://13wozo64wq.codesandbox.io/](https://13wozo64wq.codesandbox.io/)
+
+[![Edit 13wozo64wq](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/13wozo64wq)
+
+# Table of Contents
 1. [Polyfill](#polyfill)
 2. [Installation](#installation)
 3. [Usage](#usage) 
