@@ -26,6 +26,6 @@ const SomeComponent = () => {
 
 ```js
 <>
-  <HookComponent />
+  <SomeComponent />
 </>
 ```
