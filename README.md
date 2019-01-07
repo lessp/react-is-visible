@@ -11,9 +11,9 @@ Uses the [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web
 1. [Polyfill](#polyfill)
 2. [Installation](#installation)
 3. [Usage](#usage) 
-  1. [React Hook](#react-hook)
-  2. [HOC](#hoc)
-  3. [Render Prop](#render-prop)
+     - [React Hook](#react-hook)
+     - [HOC](#hoc)
+     - [Render Prop](#render-prop)
 4. [License](#license)
 
 
