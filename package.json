@@ -17,7 +17,7 @@
     "src"
   ],
   "scripts": {
-    "build-storybook": "build-storybook -o docs/",
+    "build-storybook": "build-storybook -c .storybook -o /docs",
     "build": "rimraf lib && babel src/ -d lib/",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "jest",
