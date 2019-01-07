@@ -7,7 +7,17 @@ A simple library that passes an 'isVisible'-prop to components that are using it
 
 Uses the [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver).
 
-## Polyfill
+# Table of contents
+1. [Polyfill](#polyfill)
+2. [Installation](#installation)
+3. [Usage](#usage) 
+  1. [React Hook](#react-hook)
+  2. [HOC](#hoc)
+  3. [Render Prop](#render-prop)
+4. [License](#license)
+
+
+## [Polyfill](#polyfilll)
 
 In order to polyfill, install the [polyfill from W3C](https://github.com/w3c/IntersectionObserver/tree/master/polyfill)
 
@@ -19,16 +29,16 @@ eg.
 
 ```jsx
 // App.js
-import React from "react";
-import ReactDOM from "react-dom";
+import React from "react"
+import ReactDOM from "react-dom"
 
-import "intersection-observer";
-import { withIsVisible } from "react-is-visible";
+import "intersection-observer"
+import { withIsVisible } from "react-is-visible"
 
 // ...
 ```
 
-## Installation
+## [Installation](#installation)
 
     $ npm install react-is-visible --save
 
@@ -36,54 +46,68 @@ or
 
     $ yarn add react-is-visible
 
-## Usage
+## [Usage](#usage)
 
 ### React Is Visible
 
-#### HOC
+#### [React Hook](#react-hook)
 
 ```jsx
-import React from "react";
-import { withIsVisible } from "react-is-visible";
+import React, { useRef } from "react"
+import { useIsVisible } from "react-is-visible"
 
-const SomeComponent = ({ isVisible }) => <h1>{isVisible && `I'm visible!`}</h1>;
+const SomeComponent = () => {
+  const nodeRef = useRef()
+  const isVisible = useIsVisible(nodeRef)
 
-export default withIsVisible(SomeComponent);
+  return (
+    <h1 ref={nodeRef}>
+      {isVisible && `I'm visible!`}
+    </h1>
+  )
+}
+```
+
+#### [HOC](#hoc)
+
+```jsx
+import React from "react"
+import { withIsVisible } from "react-is-visible"
+
+const SomeComponent = ({ isVisible }) => <h1>{isVisible && `I'm visible!`}</h1>
+
+export default withIsVisible(SomeComponent)
 ```
 
 or as a decorator
 
 ```jsx
-import React from "react";
-import { withIsVisible } from "react-is-visible";
+import React from "react"
+import { withIsVisible } from "react-is-visible"
 
 @withIsVisible
 class SomeClass extends React.Component {
   render() {
-    const { isVisible } = this.props;
+    const { isVisible } = this.props
 
-    return <h1>{isVisible && `I'm visible!`}</h1>;
+    return <h1>{isVisible && `I'm visible!`}</h1>
   }
 }
 ```
 
-#### Render Prop
+#### [Render Prop](#render-prop)
 
 ```jsx
-import React from "react";
-import IsVisible from "react-is-visible";
+import React from "react"
+import IsVisible from "react-is-visible"
 
 const App = () => (
   <IsVisible>
     {isVisible => <h1>{isVisible ? `I'm visible!` : `I'm not visible!`}</h1>}
   </IsVisible>
-);
+)
 ```
 
-## API
-
-...
-
-## License
+## [License](#license)
 
 MIT
