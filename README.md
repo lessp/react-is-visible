@@ -3,7 +3,9 @@
 [![build status](https://img.shields.io/travis/lessp/react-is-visible/master.svg?style=flat-square)](https://travis-ci.org/lessp/react-is-visible)
 [![dependencies Status](https://david-dm.org/lessp/react-is-visible/status.svg?style=flat-square)](https://david-dm.org/lessp/react-is-visible)
 
-A simple library that passes an 'isVisible'-prop to components that are using it.
+A simple library that lets you know whether a Component is visible or not.
+
+**Live examples:** [https://lessp.github.io/react-is-visible/](https://lessp.github.io/react-is-visible/index.html)
 
 Uses the [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver).
 
