@@ -40,8 +40,8 @@
     }
   },
   "peerDependencies": {
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "dependencies": {
     "hoist-non-react-statics": "3.2.1"
@@ -70,9 +70,9 @@
     "intersection-observer": "0.5.1",
     "jest": "23.6.0",
     "jest-dom": "3.0.0",
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2",
-    "react-testing-library": "5.4.4",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-testing-library": "5.5.3",
     "regenerator-runtime": "0.13.1",
     "rimraf": "2.6.3"
   }
