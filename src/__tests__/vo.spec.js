@@ -1,10 +1,5 @@
 import React, { useRef } from 'react'
-import {
-  cleanup,
-  flushEffects,
-  render,
-  waitForElement,
-} from 'react-testing-library'
+import { cleanup, render, waitForElement } from 'react-testing-library'
 
 import 'intersection-observer'
 import { VisibilityObserver as VO, withIsVisible, useIsVisible } from '../'
@@ -103,8 +98,6 @@ describe('VisibilityObserver', () => {
       <FunctionalComponentHook>FunctionalComponentHook</FunctionalComponentHook>
     )
 
-    flushEffects()
-
     const subscribers = VO.getSubscribers()
 
     expect(subscribers.has(getByText('FunctionalComponentHook'))).toBe(true)
@@ -120,8 +113,6 @@ describe('VisibilityObserver', () => {
     rerender(
       <FunctionalComponentHook>FunctionalComponentHook</FunctionalComponentHook>
     )
-
-    flushEffects()
 
     const subscribers = VO.getSubscribers()
     const domNode = getByText('FunctionalComponentHook')

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { render, cleanup, flushEffects } from 'react-testing-library'
+import { render, cleanup } from 'react-testing-library'
 
 import 'intersection-observer'
 import { useIsVisible } from '../'
@@ -21,8 +21,6 @@ describe('useIsVisible', () => {
 
     rerender(<FunctionalComponent>Functional</FunctionalComponent>)
 
-    flushEffects()
-
     expect(getByText('Functional')).toBeInTheDocument()
   })
 
@@ -32,8 +30,6 @@ describe('useIsVisible', () => {
     )
 
     rerender(<FunctionalComponent>Functional</FunctionalComponent>)
-
-    flushEffects()
 
     expect(getByTestId('isVisible-false')).toBeInTheDocument()
   })
