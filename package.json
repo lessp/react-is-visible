@@ -1,6 +1,6 @@
 {
   "name": "react-is-visible",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple library that lets you know whether a Component is visible or not.",
   "keywords": [
     "intersection",
