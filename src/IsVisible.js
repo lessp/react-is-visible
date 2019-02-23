@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import VO from './VisibilityObserver'
 
-class IsVisible extends React.Component {
+class IsVisible extends React.PureComponent {
   state = {
     isVisible: false,
   }
@@ -13,10 +13,6 @@ class IsVisible extends React.Component {
       ReactDOM.findDOMNode(this),
       this.handleVisibilityChange
     )
-  }
-
-  shouldComponentUpdate(_nextProps, nextState) {
-    return nextState !== this.state
   }
 
   componentWillUnmount() {
