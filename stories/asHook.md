@@ -4,7 +4,7 @@
 
 **Component definition:** 
 
-```js
+```jsx
 import React, { useRef } from 'react'
 import { useIsVisible } from 'react-is-visible'
 
@@ -24,7 +24,7 @@ const SomeComponent = () => {
 
 **How to use:** 
 
-```js
+```jsx
 <>
   <SomeComponent />
 </>

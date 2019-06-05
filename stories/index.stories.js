@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { storiesOf } from '@storybook/react'
+import { addParameters, storiesOf } from '@storybook/react'
 
 import 'intersection-observer'
 
@@ -58,6 +58,7 @@ const FunctionalComponentWithIsVisible = withIsVisible(FunctionalComponent)
 
 /* Stories */
 storiesOf('React Is Visible', module)
+  .addParameters({ options: { showPanel: false } })
   .add(
     'as HOC',
     () => (
