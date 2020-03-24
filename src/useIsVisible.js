@@ -9,7 +9,10 @@ function useIsVisible(nodeRef) {
     setVisible(isIntersecting)
   }
 
-  useEffect(() => VO.watch(nodeRef.current, handleVisibilityChange), [])
+  useEffect(() => VO.watch(nodeRef.current, handleVisibilityChange), [
+    nodeRef,
+    handleVisibilityChange,
+  ])
 
   return isVisible
 }
