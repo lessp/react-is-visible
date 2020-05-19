@@ -67,6 +67,7 @@ import { useIsVisible } from "react-is-visible"
 const SomeComponent = () => {
   const nodeRef = useRef()
   const isVisible = useIsVisible(nodeRef)
+  /* const isVisible = useIsVisible(nodeRef, { once: true }) */
 
   return (
     <h1 ref={nodeRef}>
@@ -85,6 +86,7 @@ import { withIsVisible } from "react-is-visible"
 const SomeComponent = ({ isVisible }) => <h1>{isVisible && `I'm visible!`}</h1>
 
 export default withIsVisible(SomeComponent)
+/* export default withIsVisible(SomeComponent, { once: true }) */
 ```
 
 or as a decorator
@@ -105,12 +107,14 @@ class SomeClass extends React.Component {
 
 #### [Render Prop](#render-prop)
 
+The `once`-prop is optional, but if passed, the `isVisible`-flag will only trigger once.
+
 ```jsx
 import React from "react"
 import IsVisible from "react-is-visible"
 
 const App = () => (
-  <IsVisible>
+  <IsVisible once>
     {isVisible => <h1>{isVisible ? `I'm visible!` : `I'm not visible!`}</h1>}
   </IsVisible>
 )

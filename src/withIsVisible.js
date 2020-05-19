@@ -7,9 +7,14 @@ import IsVisible from './IsVisible'
 const getDisplayName = WrappedComponent =>
   WrappedComponent.displayName || WrappedComponent.name || 'Component'
 
-export const withIsVisible = WrappedComponent => {
+const defaultOptions = {
+  once: false,
+};
+
+export const withIsVisible = (WrappedComponent,  { once } = defaultOptions)=> {
   const WithIsVisible = ({ forwardedRef, ...props }) => (
     <IsVisible
+      once={once}
       children={isVisible => (
         <WrappedComponent {...props} isVisible={isVisible} ref={forwardedRef} />
       )}

@@ -80,7 +80,7 @@ storiesOf('React Is Visible', module)
     () => (
       <div style={wrapperStyling({ height: '200vh' })}>
         <h2 style={{ color: 'black', marginBottom: 'auto' }}>Scroll down</h2>
-        <IsVisible>
+        <IsVisible once>
           {isVisible => (
             <FunctionalComponent isVisible={isVisible}>
               I'm visible!

@@ -15,7 +15,7 @@ const FunctionalComponent = props => {
 
 describe('useIsVisible', () => {
   it('renders', () => {
-    const { getByText, unmount, rerender } = render(
+    const { getByText, rerender } = render(
       <FunctionalComponent>Functional</FunctionalComponent>
     )
 
@@ -25,7 +25,7 @@ describe('useIsVisible', () => {
   })
 
   it('passes its state as props to a Functional Component', () => {
-    const { getByTestId, unmount, rerender } = render(
+    const { getByTestId, rerender } = render(
       <FunctionalComponent>Functional</FunctionalComponent>
     )
 

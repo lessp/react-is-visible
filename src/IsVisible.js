@@ -25,6 +25,10 @@ class IsVisible extends React.PureComponent {
         isVisible: isIntersecting,
       })
     }
+
+    if (isIntersecting && this.props.once) {
+      this.unwatch() 
+    }
   }
 
   render() {
