@@ -6,7 +6,7 @@ import { useIsVisible } from '../'
 
 afterEach(cleanup)
 
-const FunctionalComponent = props => {
+const FunctionalComponent = (props) => {
   const nodeRef = useRef()
   const isVisible = useIsVisible(nodeRef)
 

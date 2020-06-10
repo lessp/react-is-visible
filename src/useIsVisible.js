@@ -4,7 +4,7 @@ import VO from './VisibilityObserver'
 
 const defaultOptions = {
   once: false,
-};
+}
 
 function useIsVisible(nodeRef, { once } = defaultOptions) {
   const [isVisible, setVisible] = useState(false)

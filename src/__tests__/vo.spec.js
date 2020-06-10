@@ -8,7 +8,7 @@ afterEach(cleanup)
 
 const FunctionalComponent = ({ isVisible, ...props }) => <h1 {...props} />
 const FunctionalComponentWithIsVisible = withIsVisible(FunctionalComponent)
-const FunctionalComponentHook = props => {
+const FunctionalComponentHook = (props) => {
   const nodeRef = useRef()
   const isVisible = useIsVisible(nodeRef)
 
