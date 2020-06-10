@@ -23,7 +23,7 @@
     "prepare": "npm run test && npm run test",
     "test": "jest",
     "test:dev": "jest --watch",
-    "format": "prettier --config .prettierrc src"
+    "format": "prettier --config .prettierrc src --write"
   },
   "repository": {
     "type": "git",
