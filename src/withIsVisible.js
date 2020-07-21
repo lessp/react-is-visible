@@ -4,18 +4,18 @@ import hoistNonReactStatic from 'hoist-non-react-statics'
 
 import IsVisible from './IsVisible'
 
-const getDisplayName = (WrappedComponent) =>
+const getDisplayName = WrappedComponent =>
   WrappedComponent.displayName || WrappedComponent.name || 'Component'
 
 const defaultOptions = {
   once: false,
-}
+};
 
-export const withIsVisible = (WrappedComponent, { once } = defaultOptions) => {
+export const withIsVisible = (WrappedComponent,  { once } = defaultOptions)=> {
   const WithIsVisible = ({ forwardedRef, ...props }) => (
     <IsVisible
       once={once}
-      children={(isVisible) => (
+      children={isVisible => (
         <WrappedComponent {...props} isVisible={isVisible} ref={forwardedRef} />
       )}
     />

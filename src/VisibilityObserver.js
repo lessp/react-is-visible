@@ -2,14 +2,8 @@ let intersectionObserver
 let intersectionObserverOptions = {}
 const subscribers = new WeakMap()
 
-const handleIntersections = (entries) =>
-  entries.forEach((entry) => {
-    const maybeEntry = subscribers.get(entry.target)
-
-    if (maybeEntry) {
-      maybeEntry.call(null, entry)
-    }
-  })
+const handleIntersections = entries =>
+  entries.forEach(entry => subscribers.get(entry.target).call(null, entry))
 
 const getIntersectionObserver = () => {
   if (!intersectionObserver) {
@@ -22,7 +16,7 @@ const getIntersectionObserver = () => {
   return intersectionObserver
 }
 
-const setIntersectionObserverOptions = (options) => {
+const setIntersectionObserverOptions = options => {
   if (intersectionObserver) {
     return
   }
@@ -41,7 +35,7 @@ const watch = (domNode, callback) => {
   return () => unwatch(domNode)
 }
 
-const unwatch = (domNode) => {
+const unwatch = domNode => {
   intersectionObserver.unobserve(domNode)
   subscribers.delete(domNode)
 }

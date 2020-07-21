@@ -22,8 +22,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "prepare": "npm run test && npm run test",
     "test": "jest",
-    "test:dev": "jest --watch",
-    "format": "prettier --config .prettierrc src"
+    "test:dev": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -37,8 +36,8 @@
   "homepage": "https://github.com/lessp/react-is-visible",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format && npm test",
-      "pre-push": "npm run format && npm test"
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
     }
   },
   "peerDependencies": {
@@ -73,7 +72,6 @@
     "intersection-observer": "0.5.1",
     "jest": "24.1.0",
     "jest-dom": "3.1.2",
-    "prettier": "^2.0.5",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-testing-library": "5.9.0",
