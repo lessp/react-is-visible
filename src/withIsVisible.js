@@ -13,12 +13,11 @@ const defaultOptions = {
 
 export const withIsVisible = (WrappedComponent, { once } = defaultOptions) => {
   const WithIsVisible = ({ forwardedRef, ...props }) => (
-    <IsVisible
-      once={once}
-      children={(isVisible) => (
+    <IsVisible once={once}>
+      {(isVisible) => (
         <WrappedComponent {...props} isVisible={isVisible} ref={forwardedRef} />
       )}
-    />
+    </IsVisible>
   )
 
   /* Display name */

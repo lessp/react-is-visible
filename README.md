@@ -9,21 +9,21 @@ Uses the [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web
 
 ### Live Examples
 
-**Storybook:** [https://lessp.github.io/react-is-visible/](https://lessp.github.io/react-is-visible/index.html) 
+**Storybook:** [https://lessp.github.io/react-is-visible/](https://lessp.github.io/react-is-visible/index.html)
 
 **Code Sandbox:** [https://13wozo64wq.codesandbox.io/](https://13wozo64wq.codesandbox.io/)
 
 [![Edit 13wozo64wq](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/13wozo64wq)
 
 # Table of Contents
+
 1. [Polyfill](#polyfill)
 2. [Installation](#installation)
-3. [Usage](#usage) 
-     - [React Hook](#react-hook)
-     - [HOC](#hoc)
-     - [Render Prop](#render-prop)
+3. [Usage](#usage)
+   - [React Hook](#react-hook)
+   - [HOC](#hoc)
+   - [Render Prop](#render-prop)
 4. [License](#license)
-
 
 ## [Polyfill](#polyfilll)
 
@@ -37,11 +37,11 @@ eg.
 
 ```jsx
 // App.js
-import React from "react"
-import ReactDOM from "react-dom"
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import "intersection-observer"
-import { withIsVisible } from "react-is-visible"
+import 'intersection-observer'
+import { withIsVisible } from 'react-is-visible'
 
 // ...
 ```
@@ -61,27 +61,23 @@ or
 #### [React Hook](#react-hook)
 
 ```jsx
-import React, { useRef } from "react"
-import { useIsVisible } from "react-is-visible"
+import React, { useRef } from 'react'
+import { useIsVisible } from 'react-is-visible'
 
 const SomeComponent = () => {
   const nodeRef = useRef()
   const isVisible = useIsVisible(nodeRef)
   /* const isVisible = useIsVisible(nodeRef, { once: true }) */
 
-  return (
-    <h1 ref={nodeRef}>
-      {isVisible && `I'm visible!`}
-    </h1>
-  )
+  return <h1 ref={nodeRef}>{isVisible && `I'm visible!`}</h1>
 }
 ```
 
 #### [HOC](#hoc)
 
 ```jsx
-import React from "react"
-import { withIsVisible } from "react-is-visible"
+import React from 'react'
+import { withIsVisible } from 'react-is-visible'
 
 const SomeComponent = ({ isVisible }) => <h1>{isVisible && `I'm visible!`}</h1>
 
@@ -92,8 +88,8 @@ export default withIsVisible(SomeComponent)
 or as a decorator
 
 ```jsx
-import React from "react"
-import { withIsVisible } from "react-is-visible"
+import React from 'react'
+import { withIsVisible } from 'react-is-visible'
 
 @withIsVisible
 class SomeClass extends React.Component {
@@ -110,12 +106,12 @@ class SomeClass extends React.Component {
 The `once`-prop is optional, but if passed, the `isVisible`-flag will only trigger once.
 
 ```jsx
-import React from "react"
-import IsVisible from "react-is-visible"
+import React from 'react'
+import IsVisible from 'react-is-visible'
 
 const App = () => (
   <IsVisible once>
-    {isVisible => <h1>{isVisible ? `I'm visible!` : `I'm not visible!`}</h1>}
+    {(isVisible) => <h1>{isVisible ? `I'm visible!` : `I'm not visible!`}</h1>}
   </IsVisible>
 )
 ```

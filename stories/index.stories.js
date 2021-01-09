@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { addParameters, storiesOf } from '@storybook/react'
+import { storiesOf, module } from '@storybook/react'
 
 import 'intersection-observer'
 
@@ -20,9 +20,8 @@ const wrapperStyling = (addStyling = {}) => ({
   ...addStyling,
 })
 
-const boxStyling = isVisible => ({
+const boxStyling = (isVisible) => ({
   boxSizing: 'border-box',
-  margin: 0,
   padding: '25px',
   height: '256px',
   width: '256px',
@@ -42,13 +41,13 @@ const FunctionalComponent = ({ isVisible, children, ...props }) => (
 )
 
 /* As Hook */
-const HookComponent = props => {
+const HookComponent = (props) => {
   const nodeRef = useRef()
   const isVisible = useIsVisible(nodeRef)
 
   return (
     <h1 ref={nodeRef} style={boxStyling(isVisible)} {...props}>
-      {isVisible && `I'm visible!`}
+      {isVisible && 'I\'m visible!'}
     </h1>
   )
 }
@@ -65,7 +64,7 @@ storiesOf('React Is Visible', module)
       <div style={wrapperStyling({ height: '200vh' })}>
         <h2 style={{ color: 'black', marginBottom: 'auto' }}>Scroll down</h2>
         <FunctionalComponentWithIsVisible>
-          I'm visible!
+          I&apos;m visible!
         </FunctionalComponentWithIsVisible>
       </div>
     ),
@@ -81,9 +80,9 @@ storiesOf('React Is Visible', module)
       <div style={wrapperStyling({ height: '200vh' })}>
         <h2 style={{ color: 'black', marginBottom: 'auto' }}>Scroll down</h2>
         <IsVisible once>
-          {isVisible => (
+          {(isVisible) => (
             <FunctionalComponent isVisible={isVisible}>
-              I'm visible!
+              I&apos;m visible!
             </FunctionalComponent>
           )}
         </IsVisible>
