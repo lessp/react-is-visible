@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 
 import VO from './VisibilityObserver'
 
@@ -9,13 +9,16 @@ const defaultOptions = {
 function useIsVisible(nodeRef, { once } = defaultOptions) {
   const [isVisible, setVisible] = useState(false)
 
-  function handleVisibilityChange({ isIntersecting }) {
-    setVisible(isIntersecting)
+  const handleVisibilityChange = useCallback(
+    ({ isIntersecting }) => {
+      setVisible(isIntersecting)
 
-    if (isIntersecting && once) {
-      VO.unwatch(nodeRef.current)
-    }
-  }
+      if (isIntersecting && once) {
+        VO.unwatch(nodeRef.current)
+      }
+    },
+    [nodeRef, once]
+  )
 
   useEffect(() => VO.watch(nodeRef.current, handleVisibilityChange), [
     nodeRef,
