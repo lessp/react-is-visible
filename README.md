@@ -11,9 +11,9 @@ Uses the [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web
 
 **Storybook:** [https://lessp.github.io/react-is-visible/](https://lessp.github.io/react-is-visible/index.html)
 
-**Code Sandbox:** [https://13wozo64wq.codesandbox.io/](https://13wozo64wq.codesandbox.io/)
+**Code Sandbox:** [https://2c2qy.csb.app/](https://2c2qy.csb.app/)
 
-[![Edit 13wozo64wq](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/13wozo64wq)
+[![Edit festive-mendel-2c2qy](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/festive-mendel-2c2qy?fontsize=14&hidenavigation=1&theme=dark)
 
 # Table of Contents
 
