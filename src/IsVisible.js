@@ -10,6 +10,7 @@ class IsVisible extends React.PureComponent {
 
   componentDidMount() {
     this.unwatch = VO.watch(
+      // eslint-disable-next-line
       ReactDOM.findDOMNode(this),
       this.handleVisibilityChange
     )
