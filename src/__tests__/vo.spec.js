@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { cleanup, render } from 'react-testing-library'
+import { render, cleanup } from '@testing-library/react'
 
 import 'intersection-observer'
 import { VisibilityObserver as VO, withIsVisible, useIsVisible } from '../'
