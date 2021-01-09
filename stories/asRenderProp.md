@@ -1,6 +1,6 @@
 ## as HOC
 
-------------
+---
 
 **How to use:**
 
@@ -12,11 +12,7 @@ import IsVisible from 'react-is-visible'
 
 const SomeComponent = () => (
   <IsVisible once>
-    {isVisible => (
-      <h1>
-        {isVisible && `I'm visible!`}
-      </h1>
-    )}
+    {(isVisible) => <h1>{isVisible && `I'm visible!`}</h1>}
   </IsVisible>
 )
 ```

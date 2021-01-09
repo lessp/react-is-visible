@@ -18,7 +18,7 @@ class ClassComponent extends React.Component {
     return <h1 data-testid={`isVisible-${isVisible}`} {...props} />
   }
 }
-ClassComponent = withIsVisible(ClassComponent)
+const ClassComponentWithIsVisible = withIsVisible(ClassComponent)
 
 describe('withIsVisible', () => {
   it('renders a Functional Component', () => {
@@ -30,7 +30,9 @@ describe('withIsVisible', () => {
   })
 
   it('renders a Class Component', () => {
-    const { getByText } = render(<ClassComponent>Class</ClassComponent>)
+    const { getByText } = render(
+      <ClassComponentWithIsVisible>Class</ClassComponentWithIsVisible>
+    )
 
     expect(getByText('Class')).toBeInTheDocument()
   })
@@ -42,7 +44,7 @@ describe('withIsVisible', () => {
   })
 
   it('passes its state as props to a Class Component', () => {
-    const { getByTestId } = render(<ClassComponent />)
+    const { getByTestId } = render(<ClassComponentWithIsVisible />)
 
     expect(getByTestId('isVisible-false')).toBeInTheDocument()
   })
